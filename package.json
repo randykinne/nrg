@@ -1,0 +1,23 @@
+{
+  "name": "nexly-report-generator",
+  "version": "1.0.0",
+  "description": "Nexly Report Generator",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randykinne/nrg.git"
+  },
+  "author": "Randy Kinne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randykinne/nrg/issues"
+  },
+  "homepage": "https://github.com/randykinne/nrg#readme",
+  "devDependencies": {
+    "electron": "^4.0.1"
+  }
+}
