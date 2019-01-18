@@ -1,27 +1,46 @@
-const { app, BrowserWindow } = require('electron')
+'use strict';
+const electron = require('electron');
+//const {app, BrowserWindow, Menu, electronSend} = electron.app;
 
-let win
+const app = electron.app;
 
-function createWindow() {
-    win = new BrowserWindow({ width: 800, height: 600})
+// Prevent window being garbage collected
+let mainWindow;
 
-    win.loadFile('index.html')
-
-    win.on('closed', () => {
-        win = null
-    })
+function generateReport() {
+    Console.log('Called!1!! generating report');
 }
 
-app.on('ready', createWindow)
+function onClosed() {
+    // Dereference the window
+    // For multiple windows store them in an array
+    mainWindow = null;
+}
+
+function createMainWindow() {
+    const win = new electron.BrowserWindow({
+        width: 800,
+        height: 600
+    });
+
+    win.loadURL(`file://${__dirname}/index.html`);
+    win.on('closed', onClosed);
+
+    return win;
+}
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit()
+        app.quit();
     }
-})
+});
 
 app.on('activate', () => {
-    if (win === null) {
-        createWindow
+    if (!mainWindow) {
+        mainWindow = createMainWindow();
     }
-})
+});
+
+app.on('ready', () => {
+    mainWindow = createMainWindow();
+});

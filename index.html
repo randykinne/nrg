@@ -1,13 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hello World!</title>
+        <title>Nexly Report Generator</title>
+        <link rel="stylesheet" href="main.css">
     </head>
+    <script>
+const electron = require('electron');
+const {electronSend} = electron;
+
+document.getElementById('report').onsubmit = e => {
+   e.preventDefault();
+   electronSend.send('name', document.getElementById('username').value);
+};
+</script>
     <body>
-        <h1>Hello World!</h1>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        <div class="container">
+            <header>
+                <h1>Nexly Report Generator</h1>
+            </header>
+            <div class="container">
+            <section class="main">
+                <form id="report">
+                    <h4 class="username">Your Username</h4>
+                    <input id="username" class="form-control text-input" placeholder="Username">
+
+                    <h4 class="description">What Happened</h4>
+                    <input id="description" class="form-control text-input" placeholder="What Happened">
+
+                    <h4 class="time">When it Happened</h4>
+                    <input id="time" class="form-control text-input" placeholder="When it Happened">
+
+                    <h4 class="accused">Name(s) of Accused</h4>
+                    <input id="accused" class="form-control text-input" placeholder="Name(s)">
+
+                    <h4 class="evidence">Evidence</h4>
+                    <input id="evidence" class="form-control text-input" placeholder="Evidence">
+                </form>
+
+               <input type="button" onclick="generateReport" value="CREATE REPORT" />
+            </section>
+            </div>
+            <div>
+            <footer>By Randy Kinne 2019</footer>
+        </div>
     </body>
 </html>
