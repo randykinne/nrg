@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Nexly Report Generator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 id="test"></h1>
+            <script>
+                    const { ipcRenderer } = require('electron');
+        
+                    ipcRenderer.on('action-update-label', (event, arg) => {
+        
+                        // Update the second window label content with the data sent from
+                        // the first window :) !
+                        let label = document.getElementById("test");
+        
+                        label.innerHTML = arg.message;
+                        label.style.color = arg.color;
+                        label.style.backgroundColor = arg.backgroundColor;
+                    });
+                </script>
+        </div>
+    </body>
+</html>

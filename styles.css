@@ -1,0 +1,56 @@
+body {
+    font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+header span {
+    font-weight: 400;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+.spacing {
+    margin: 10px;
+}
+
+h4 {
+    margin-bottom: auto;
+}
+
+input {
+    font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 300;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 95%
+}
+
+textarea {
+    font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 300;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 95%
+}
+
+input[type=button] {
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+footer {
+    font-weight: 100;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+}
