@@ -7,15 +7,7 @@ const { ipcMain } = require('electron');
 let mainWindow;
 let resultWindow;
 
-const windowSettings = {
-    width: 600,
-    height: 600,
-    show: false
-}
-
 function onClosed() {
-    // Dereference the window
-    // For multiple windows store them in an array
     mainWindow = null;
     resultWindow = null;
 }
@@ -37,12 +29,13 @@ function createMainWindow() {
         height: 600
     });
 
-    ipcMain.on('request-update-label-in-second-window', (event, arg) => {
+    ipcMain.on('update-report', (event, arg) => {
         // Request to update the label in the renderer process of the second window
-        if (resultWindow !== null) {
+        if (resultWindow == null) {
             resultWindow = createResultWindow();
         }
-        resultWindow.webContents.send('action-update-label', arg);
+
+        resultWindow.webContents.send('send-report', arg);
     });
 
     main.loadURL(`file://${__dirname}/index.html`);
