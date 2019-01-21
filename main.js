@@ -1,41 +1,19 @@
 'use strict';
 const electron = require('electron');
 const app = electron.app;
-const { ipcMain } = require('electron');
 
 // Prevent window being garbage collected
 let mainWindow;
-let resultWindow;
 
 function onClosed() {
     mainWindow = null;
-    resultWindow = null;
-}
-
-function createResultWindow() {
-    const result = new electron.BrowserWindow({
-        width: 500,
-        height: 400
-    })
-
-    result.loadURL(`file://${__dirname}/result.html`)
-
-    return result;
 }
 
 function createMainWindow() {
     const main = new electron.BrowserWindow({
         width: 600,
-        height: 625
-    });
-
-    ipcMain.on('update-report', (event, arg) => {
-        // Request to update the label in the renderer process of the second window
-        if (resultWindow == null) {
-            resultWindow = createResultWindow();
-        }
-
-        resultWindow.webContents.send('send-report', arg);
+        height: 600,
+        icon: __dirname + "/assets/nexly.ico"
     });
 
     main.loadURL(`file://${__dirname}/index.html`);
