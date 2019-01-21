@@ -23,6 +23,7 @@ h2, h3, h4, h5, h6 {
 
 h4 {
     margin-bottom: auto;
+    font-weight: 400;
 }
 
 input {
@@ -30,6 +31,7 @@ input {
     font-weight: 300;
     padding-bottom: 5px;
     padding-left: 5px;
+    padding-top: 5px;
     width: 95%
 }
 
@@ -38,6 +40,7 @@ textarea {
     font-weight: 300;
     padding-bottom: 5px;
     padding-left: 5px;
+    padding-top: 5px;
     width: 95%
 }
 
