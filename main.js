@@ -26,7 +26,7 @@ function createResultWindow() {
 function createMainWindow() {
     const main = new electron.BrowserWindow({
         width: 600,
-        height: 600
+        height: 625
     });
 
     ipcMain.on('update-report', (event, arg) => {

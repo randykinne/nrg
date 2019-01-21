@@ -10,7 +10,6 @@
             <header>
                 <h1><span>Nexly</span> Report Generator</h1>
             </header>
-            <div class="spacing"></div>
             <div class="input">
             <section class="main">
                 <form id="report">
@@ -30,29 +29,35 @@
                     <input id="evidence" class="form-control text-input" placeholder="Evidence Link" maxlength="256">
                 </form>
                 <div class="spacing"></div>
-               <input id="submit" type="submit" onclick="generateReport()" value="Create Report" />
-
+               <input id="submit" type="submit" value="Create Report" />
                <script>
-                    const { ipcRenderer } = require('electron');
-        
-                    document.getElementById("submit").addEventListener("click", () => {
-                        // Some data that will be sent to the main process
-                        let Data = {
-                            username: document.getElementById("username").value,
-                            description: document.getElementById("description").value,
-                            time: document.getElementById("time").value,
-                            accused: document.getElementById("accused").value,
-                            evidence: document.getElementById("evidence").value
-                        };
-        
-                        // Trigger the event listener action to this event in the renderer process and send the data
-                        ipcRenderer.send('update-report', Data);
-                    }, false);
+                   document.getElementById("submit").addEventListener("click", () => {
+
+                        let username = document.getElementById("username").value;
+                        let description = document.getElementById("description").value;
+                        let time = document.getElementById("time").value;
+                        let accused = document.getElementById("accused").value;
+                        let evidence = document.getElementById("evidence").value;
+
+                        window.alert(
+                            "1. Your In Game Name: " + username + "\n" +
+                            "2. What Happened: " + description + "\n" + 
+                            "3. When It Happened: " + time + "\n" +
+                            "4. Name(s) of Accused: " + accused + "\n" +
+                            "5. Evidence: " + evidence);
+                   }, false);
+                    /*
+                    1. Your In Game Name:
+                    2. What happened:
+                    3. When it happened:
+                    4. Name(s) of accused:
+                    5. Evidence:
+                    */
                 </script>
             </section>
             </div>
+            <footer>by Randy Kinne 2019</footer>
             <div>
-            <footer>By Randy Kinne 2019</footer>
         </div>
     </body>
 </html>
